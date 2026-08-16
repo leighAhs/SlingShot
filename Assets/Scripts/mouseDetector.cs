@@ -12,6 +12,7 @@ public class mouseDetector : MonoBehaviour
     Rigidbody2D rb2d;
 
     [SerializeField] float force;
+    [SerializeField] float radius;
 
     [SerializeField] GameObject dot;
     [SerializeField] List<GameObject> guideDots;
@@ -45,7 +46,7 @@ public class mouseDetector : MonoBehaviour
     }
     private void OnMouseDrag()
     {
-        if(Vector2.Distance(currentMousePosition, startingPoint) < 3)
+        if(Vector2.Distance(currentMousePosition, startingPoint) < radius)
         {
             transform.position = currentMousePosition;
 
@@ -75,5 +76,13 @@ public class mouseDetector : MonoBehaviour
     {
         Vector2 dotPoint = currentMousePosition + (direction * force * timeInterval) + 0.5f * Physics2D.gravity * (timeInterval * timeInterval);
         return dotPoint;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("hazard"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
