@@ -43,7 +43,6 @@ public class mouseDetector : MonoBehaviour
     {
         startingPoint = transform.position;
     }
-
     private void OnMouseDrag()
     {
         if(Vector2.Distance(currentMousePosition, startingPoint) < 3)
