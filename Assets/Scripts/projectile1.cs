@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class mouseDetector : MonoBehaviour
+public class projectile1 : MonoBehaviour
 {
     [SerializeField] Vector2 currentMousePosition;
 
