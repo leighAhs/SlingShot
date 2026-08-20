@@ -67,18 +67,16 @@ public class projectile1 : MonoBehaviour
         rb2d.gravityScale = 1;
         direction = startingPoint - currentPosition;
         rb2d.linearVelocity = direction * force;
-        Invoke("resetPosition", 3f);
+        Invoke("destroy", 3f);
         for(int i = 0; i < guideDots.Count; i++)
         {
             guideDots[i].SetActive(false);
         }
     }
 
-    void resetPosition()
+    void destroy()
     {
-        rb2d.gravityScale = 0;
-        transform.position = startingPoint;
-        rb2d.linearVelocity = Vector2.zero;
+        Destroy(gameObject);
     }
 
     Vector2 guidePoint(float timeInterval, Vector2 direction)
