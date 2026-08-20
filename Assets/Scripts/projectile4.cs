@@ -1,14 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class projectile1 : MonoBehaviour
+public class projectile4 : MonoBehaviour
 {
     [SerializeField] Vector2 currentMousePosition;
 
     Vector2 startingPoint;
     Vector2 currentPosition;
     Vector2 direction;
-
     Rigidbody2D rb2d;
 
     [SerializeField] float force;
@@ -19,6 +18,10 @@ public class projectile1 : MonoBehaviour
     [SerializeField] int guideLength;
     [SerializeField] float guideDistance;
 
+    [SerializeField] GameObject child;
+    [SerializeField] GameObject firstObj;
+    [SerializeField] GameObject secondObj;
+    [SerializeField] GameObject thirdObj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -46,11 +49,6 @@ public class projectile1 : MonoBehaviour
     }
     private void OnMouseDrag()
     {
-        for (int i = 0; i < guideDots.Count; i++)
-        {
-            guideDots[i].SetActive(true);
-        }
-
         if (Vector2.Distance(currentMousePosition, startingPoint) < radius)
         {
             transform.position = currentMousePosition;
@@ -67,11 +65,14 @@ public class projectile1 : MonoBehaviour
         rb2d.gravityScale = 1;
         direction = startingPoint - currentPosition;
         rb2d.linearVelocity = direction * force;
-        Invoke("resetPosition", 3f);
-        for(int i = 0; i < guideDots.Count; i++)
-        {
-            guideDots[i].SetActive(false);
-        }
+        Invoke("shoot3Projectile", 1f);
+        Invoke("destroyObj", 1.1f);
+        //Invoke("resetPosition", 3f);
+    }
+
+    void destroyObj()
+    {
+        Destroy(gameObject);
     }
 
     void resetPosition()
@@ -79,6 +80,14 @@ public class projectile1 : MonoBehaviour
         rb2d.gravityScale = 0;
         transform.position = startingPoint;
         rb2d.linearVelocity = Vector2.zero;
+    }
+
+
+    void shoot3Projectile()
+    {
+        Instantiate(child, firstObj.transform.position, firstObj.transform.rotation);
+        Instantiate(child, secondObj.transform.position, secondObj.transform.rotation);
+        Instantiate(child, thirdObj.transform.position, thirdObj.transform.rotation);
     }
 
     Vector2 guidePoint(float timeInterval, Vector2 direction)
