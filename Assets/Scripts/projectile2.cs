@@ -55,6 +55,11 @@ public class projectile2 : MonoBehaviour
     }
     private void OnMouseDrag()
     {
+        for (int i = 0; i < guideDots.Count; i++)
+        {
+            guideDots[i].SetActive(true);
+        }
+
         if (Vector2.Distance(currentMousePosition, startingPoint) < radius)
         {
             transform.position = currentMousePosition;
@@ -72,15 +77,16 @@ public class projectile2 : MonoBehaviour
         direction = startingPoint - currentPosition;
         rb2d.linearVelocity = direction * force;
         Invoke("changeDirection", 1f);
-        Invoke("resetPosition", 5f);
+        Invoke("destroy", 5f);
+        for (int i = 0; i < guideDots.Count; i++)
+        {
+            guideDots[i].SetActive(false);
+        }
     }
 
-    void resetPosition()
+    void destroy()
     {
-        rb2d.gravityScale = 0;
-        transform.position = startingPoint;
-        rb2d.linearVelocity = Vector2.zero;
-        isChangeDirection = false;
+        Destroy(gameObject);
     }
 
 
