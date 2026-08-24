@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class projectileSpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] projectile;
-
+    [SerializeField] float positionX;
+    [SerializeField] float positionY;
     bool isReady = true;
     GameObject currentProjectile;
 
@@ -13,9 +14,6 @@ public class projectileSpawner : MonoBehaviour
 
     void Update()
     {
-        float positionX = -6.401054f;
-        float positionY = -1.503922f;
-
         Vector2 startingPosition = new Vector2(positionX, positionY);
 
         for (int i = currentIndex; i < projectile.Length; i++)
