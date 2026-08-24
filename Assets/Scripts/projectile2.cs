@@ -29,6 +29,7 @@ public class projectile2 : MonoBehaviour
         for (int i = 0; i < guideLength; i++)
         {
             GameObject obj = Instantiate(dot, transform.position, transform.rotation);
+            obj.SetActive(false);
             guideDots.Add(obj);
         }
     }
@@ -77,7 +78,7 @@ public class projectile2 : MonoBehaviour
         direction = startingPoint - currentPosition;
         rb2d.linearVelocity = direction * force;
         Invoke("changeDirection", 1f);
-        Invoke("destroy", 5f);
+        Invoke("destroy", 3f);
         for (int i = 0; i < guideDots.Count; i++)
         {
             guideDots[i].SetActive(false);

@@ -103,12 +103,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMousePosition: {x: 0, y: 0}
-  force: 20
+  force: 10
   radius: 1.5
   dot: {fileID: 596168480794729841, guid: 6c343c444a0671044834a62784be67b2, type: 3}
   guideDots: []
   guideLength: 8
   guideDistance: 0.2
+  setActive: 0
 --- !u!58 &122351441610441000
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -18,10 +18,16 @@ public class projectile1 : MonoBehaviour
     [SerializeField] List<GameObject> guideDots;
     [SerializeField] int guideLength;
     [SerializeField] float guideDistance;
+    [SerializeField] bool setActive;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        for (int i = 0; i < guideDots.Count; i++)
+        {
+            guideDots[i].SetActive(false);
+        }
+
         startingPoint = transform.position;
         rb2d = GetComponent<Rigidbody2D>();
 

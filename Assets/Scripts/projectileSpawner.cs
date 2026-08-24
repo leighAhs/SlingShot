@@ -8,10 +8,20 @@ public class projectileSpawner : MonoBehaviour
     [SerializeField] float positionX;
     [SerializeField] float positionY;
     bool isReady = true;
+    [SerializeField] List<GameObject> projectileList;
     GameObject currentProjectile;
 
     int currentIndex = 0;
 
+    private void Start()
+    {
+        for (int i = 0; i < projectile.Length; i++)
+        {
+            GameObject obj = Instantiate(projectile[i], transform.position, transform.rotation);
+
+            projectileList.Add(obj);
+        }
+    }
     void Update()
     {
         Vector2 startingPosition = new Vector2(positionX, positionY);
