@@ -9,10 +9,14 @@ public class target3 : MonoBehaviour
     [SerializeField] int rotateSpeed;
     [SerializeField] bool startPos;
     [SerializeField] bool changePos;
+    [SerializeField] GameObject obj;
+    [SerializeField] levelCounter level;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         startingPos = transform.position;
+        obj = GameObject.Find("LevelCounter");
+        level = obj.GetComponent<levelCounter>();
     }
 
     // Update is called once per frame
@@ -40,5 +44,14 @@ public class target3 : MonoBehaviour
 
         changePos = false;
         startPos = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("projectile"))
+        {
+            level.levelCount = level.levelCount + 1;
+            Destroy(gameObject, 1f);
+        }
     }
 }

@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMousePosition: {x: 0, y: 0}
-  force: 12
+  force: 10
   radius: 1.5
   dot: {fileID: 7564471349464312443, guid: 42381ee16b4fc494481d7c36174eab93, type: 3}
   guideDots: []

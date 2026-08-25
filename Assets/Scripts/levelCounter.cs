@@ -3,7 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class levelCounter : MonoBehaviour
 {
-    [SerializeField] public int levelCount = 1;
+    [SerializeField] public int levelCount;
+    [SerializeField] bool level1;
+    [SerializeField] bool level2;
+    [SerializeField] bool level3;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,9 +16,16 @@ public class levelCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(levelCount == 2)
+        if(level1 && levelCount == 2)
         {
             SceneManager.LoadScene("Level2");
+            level1 = false;
+        }
+
+        if(level2 && levelCount == 3)
+        {
+            SceneManager.LoadScene("Level3");
+            level2 = false;
         }
     }
 }

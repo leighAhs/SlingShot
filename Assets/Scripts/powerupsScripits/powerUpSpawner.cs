@@ -19,7 +19,7 @@ public class powerUpSpawner : MonoBehaviour
             Vector2 randomPos = new Vector2(randomXPos, Ypos);
 
             int randomPowerup = Random.Range(0, 3);
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(10f);
             Instantiate(powerUps[randomPowerup], randomPos, transform.rotation);
         }
     }

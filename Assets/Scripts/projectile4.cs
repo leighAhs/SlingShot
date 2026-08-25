@@ -75,14 +75,6 @@ public class projectile4 : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void resetPosition()
-    {
-        rb2d.gravityScale = 0;
-        transform.position = startingPoint;
-        rb2d.linearVelocity = Vector2.zero;
-    }
-
-
     void shoot3Projectile()
     {
         Instantiate(child, firstObj.transform.position, firstObj.transform.rotation);
