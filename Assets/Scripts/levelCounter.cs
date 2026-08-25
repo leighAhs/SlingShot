@@ -7,11 +7,6 @@ public class levelCounter : MonoBehaviour
     [SerializeField] bool level1;
     [SerializeField] bool level2;
     [SerializeField] bool level3;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

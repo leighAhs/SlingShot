@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class target3 : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class target3 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("projectile"))
         {
-            level.levelCount = level.levelCount + 1;
+            SceneManager.LoadScene("WinScene");
             Destroy(gameObject, 1f);
         }
     }

@@ -49,5 +49,10 @@ public class projectileSpawner : MonoBehaviour
         {
             SceneManager.LoadScene("GameOverscene");
         }
+
+        if(projectileCount == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

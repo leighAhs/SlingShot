@@ -3070,6 +3070,7 @@ GameObject:
   - component: {fileID: 1968456272}
   - component: {fileID: 1968456274}
   - component: {fileID: 1968456273}
+  - component: {fileID: 1968456275}
   m_Layer: 5
   m_Name: projectileCount
   m_TagString: Untagged
@@ -3198,6 +3199,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968456271}
   m_CullTransparentMesh: 1
+--- !u!114 &1968456275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968456271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c4e4410eac25144b9288f75db9e1e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 0}
+  script: {fileID: 0}
 --- !u!1 &1968532286 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8660912662202230818, guid: 24df52da5828fd0469e563f7e27e3605, type: 3}

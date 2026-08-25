@@ -7,6 +7,11 @@ public class powerUp3Clone : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.up * 5 * Time.deltaTime);
+
+        if(transform.position.y < -5f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
