@@ -8,6 +8,7 @@ public class powerUp2Spawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(spawner());
+        Destroy(gameObject, 5);
     }
 
     IEnumerator spawner()
@@ -22,7 +23,7 @@ public class powerUp2Spawner : MonoBehaviour
 
             Vector2 randomPos = new Vector2(posX, 5.1f);
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.5f);
 
             Instantiate(obj, randomPos, transform.rotation);
         }
