@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class projectileSpawner : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class projectileSpawner : MonoBehaviour
 
         if(playerHealth <= 0)
         {
-            Debug.Log("Game Over");
+            SceneManager.LoadScene("GameOverscene");
         }
     }
 }

@@ -25,6 +25,10 @@ public class projectile4 : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        for (int i = 0; i < guideDots.Count; i++)
+        {
+            guideDots[i].SetActive(false);
+        }
         startingPoint = transform.position;
         rb2d = GetComponent<Rigidbody2D>();
 
@@ -49,6 +53,11 @@ public class projectile4 : MonoBehaviour
     }
     private void OnMouseDrag()
     {
+        for (int i = 0; i < guideDots.Count; i++)
+        {
+            guideDots[i].SetActive(true);
+        }
+
         if (Vector2.Distance(currentMousePosition, startingPoint) < radius)
         {
             transform.position = currentMousePosition;
@@ -67,6 +76,10 @@ public class projectile4 : MonoBehaviour
         rb2d.linearVelocity = direction * force;
         Invoke("shoot3Projectile", 1f);
         Invoke("destroyObj", 1.1f);
+        for (int i = 0; i < guideDots.Count; i++)
+        {
+            guideDots[i].SetActive(false);
+        }
         //Invoke("resetPosition", 3f);
     }
 
