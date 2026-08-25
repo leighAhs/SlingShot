@@ -10,7 +10,7 @@ public class rotatingHazard : MonoBehaviour
     {
         transform.eulerAngles += rotation * Time.deltaTime * rotationSpeed;
 
-        if(health >= 0)
+        if(health <= 0)
         {
             Destroy(gameObject);
         }
