@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class projectileSpawner : MonoBehaviour
 {
 
-    [SerializeField] int playerHealth = 5;
+    [SerializeField] public int playerHealth = 5;
 
     [SerializeField] GameObject[] projectile;
     [SerializeField] float positionX;
