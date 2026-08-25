@@ -11,19 +11,14 @@ public class projectileSpawner : MonoBehaviour
     [SerializeField] float positionX;
     [SerializeField] float positionY;
     bool isReady = true;
-    [SerializeField] List<GameObject> projectileList;
     GameObject currentProjectile;
 
+    [SerializeField] public int projectileCount;
     int currentIndex = 0;
 
     private void Start()
     {
-        for (int i = 0; i < projectile.Length; i++)
-        {
-            GameObject obj = Instantiate(projectile[i], transform.position, transform.rotation);
-
-            projectileList.Add(obj);
-        }
+        projectileCount = projectile.Length;
     }
     void Update()
     {
@@ -44,6 +39,7 @@ public class projectileSpawner : MonoBehaviour
 
         if (!isReady && currentProjectile == null)
         {
+            projectileCount--;
             playerHealth = playerHealth - 1;
             isReady = true;
         }
