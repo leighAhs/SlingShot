@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class projectileSpawner : MonoBehaviour
 {
+
+    [SerializeField] int playerHealth = 5;
+
     [SerializeField] GameObject[] projectile;
     [SerializeField] float positionX;
     [SerializeField] float positionY;
@@ -41,7 +44,13 @@ public class projectileSpawner : MonoBehaviour
 
         if (!isReady && currentProjectile == null)
         {
+            playerHealth = playerHealth - 1;
             isReady = true;
+        }
+
+        if(playerHealth <= 0)
+        {
+            Debug.Log("Game Over");
         }
     }
 }
